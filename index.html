@@ -1,0 +1,310 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="ESP32-C3 RGB LED Ring Development Board User Manual, specifications and software downloads.">
+<title>ESP32-C3 RGB LED Ring | User Manual</title>
+<style>
+:root {
+  --navy:#10213d;
+  --blue:#1c3559;
+  --orange:#f28a24;
+  --bg:#f4f6fa;
+  --text:#253247;
+  --muted:#718096;
+  --white:#fff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--text);
+  font-family:Arial,Helvetica,sans-serif;line-height:1.65;
+}
+a{color:inherit}
+.nav{
+  background:var(--navy);color:white;
+  position:sticky;top:0;z-index:10;
+  padding:13px 5%;display:flex;
+  justify-content:space-between;align-items:center;
+  gap:16px;flex-wrap:wrap;
+}
+.logo{font-weight:700;letter-spacing:.5px}
+.nav-links{display:flex;gap:20px;flex-wrap:wrap}
+.nav-links a{text-decoration:none;color:#d9e3f1;font-size:13px}
+.nav-links a:hover{color:#ffb45e}
+.hero{
+  background:linear-gradient(135deg,#10213d,#244c78);
+  color:white;padding:65px 20px 55px;text-align:center;
+}
+.eyebrow{color:#ffb45e;font-size:12px;letter-spacing:3px;font-weight:bold}
+.hero h1{font-size:clamp(28px,5vw,46px);line-height:1.2;margin:12px 0}
+.hero p{color:#d6e1ef;margin:8px auto;max-width:680px}
+.tags{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:22px}
+.tag{border:1px solid #66809e;border-radius:30px;padding:5px 13px;font-size:12px}
+.container{max-width:1080px;margin:auto;padding:35px 20px}
+.section{margin-bottom:38px;scroll-margin-top:75px}
+.section-title{font-size:25px;color:var(--navy);margin:0 0 7px}
+.section-sub{color:var(--muted);font-size:14px;margin:0 0 22px}
+.card{
+  background:white;border-radius:14px;padding:22px;
+  border:1px solid #e7ebf1;
+  box-shadow:0 5px 20px rgba(20,40,70,.045);
+}
+.product-image{
+  display:block;width:100%;max-width:760px;
+  margin:0 auto;border-radius:8px;
+}
+.caption{text-align:center;color:var(--muted);font-size:12px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+.feature h3{color:var(--navy);font-size:16px;margin:0 0 8px}
+.feature ul{margin:0;padding-left:19px;color:#596579;font-size:14px}
+.feature li{margin:5px 0}
+.icon{
+  width:36px;height:36px;border-radius:10px;
+  background:#fff0df;color:#d87517;
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;margin-bottom:12px;
+}
+.warning{
+  border-left:4px solid var(--orange);
+  background:#fff6eb;padding:16px 19px;
+  border-radius:5px;font-size:14px;
+}
+.specs{width:100%;border-collapse:collapse;font-size:14px}
+.specs th{background:var(--navy);color:white;text-align:left}
+.specs th,.specs td{padding:11px 14px;border-bottom:1px solid #e4e9f0}
+.specs tr:nth-child(even){background:#f4f6fa}
+.download-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+.download-card{
+  background:white;border:1px solid #e5eaf1;
+  padding:19px;border-radius:12px;
+}
+.download-card h3{font-size:15px;color:var(--navy);margin:0 0 5px}
+.download-card p{font-size:13px;color:var(--muted);margin:0 0 13px}
+.btn{
+  display:inline-block;text-decoration:none;
+  background:var(--navy);color:white;
+  padding:9px 16px;border-radius:7px;
+  font-size:13px;font-weight:bold;
+}
+.btn:hover{background:#31577f}
+.btn.orange{background:var(--orange);color:#17243a}
+.small-link{font-size:13px;color:#2364a0;word-break:break-all}
+.purchase{
+  background:linear-gradient(135deg,#172e50,#244b75);
+  color:white;text-align:center;padding:30px;border-radius:15px;
+}
+.purchase h2{margin:0 0 8px}
+.purchase p{color:#d6e1ef}
+.footer{text-align:center;padding:28px;color:#8994a4;font-size:12px}
+@media(max-width:650px){
+  .grid,.download-grid{grid-template-columns:1fr}
+  .nav{justify-content:center}
+  .nav-links{justify-content:center;gap:12px}
+  .container{padding:25px 14px}
+  .card{padding:16px}
+  .specs{font-size:12px}
+  .specs th,.specs td{padding:9px 8px}
+}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="logo">ESP32-C3 RGB LED RING</div>
+  <nav class="nav-links">
+    <a href="#overview">Overview</a>
+    <a href="#features">Features</a>
+    <a href="#specs">Specifications</a>
+    <a href="#downloads">Downloads</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="eyebrow">DIY ELECTRONICS · DEVELOPMENT BOARD</div>
+  <h1>ESP32-C3 RGB LED Ring</h1>
+  <p>A programmable circular RGB LED development board
+     for lighting effects, electronics learning and DIY projects.</p>
+  <div class="tags">
+    <span class="tag">24 RGB LEDs</span>
+    <span class="tag">ESP32-C3</span>
+    <span class="tag">Wi-Fi & Bluetooth</span>
+    <span class="tag">USB Type-C</span>
+  </div>
+</section>
+
+<main class="container">
+
+<section class="section" id="overview">
+  <h2 class="section-title">01. Product Overview</h2>
+  <p class="section-sub">Get to know your ESP32-C3 RGB LED Ring Development Board.</p>
+  <div class="card">
+    <img class="product-image"
+      src="Main%20Image.png"
+      alt="ESP32-C3 RGB LED Ring annotated component diagram">
+    <p class="caption">Board layout and component identification</p>
+    <div class="grid">
+      <div>
+        <h3>Main Controller</h3>
+        <p>ESP32-C3 MCU with integrated Wi-Fi and Bluetooth.</p>
+      </div>
+      <div>
+        <h3>RGB Lighting</h3>
+        <p>24 onboard WS2812B addressable RGB LEDs.</p>
+      </div>
+      <div>
+        <h3>Control Buttons</h3>
+        <p>RESET button and BOOT function button.</p>
+      </div>
+      <div>
+        <h3>GPIO Expansion</h3>
+        <p>IO0 and IO1 for custom external connections.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="features">
+  <h2 class="section-title">02. Key Features</h2>
+  <p class="section-sub">Built for convenient operation and further development.</p>
+  <div class="grid">
+    <div class="card feature">
+      <div class="icon">?</div>
+      <h3>Five Built-In Lighting Effects</h3>
+      <ul>
+        <li>Factory-preloaded demo firmware.</li>
+        <li>Press the BOOT button to switch between five lighting effects.</li>
+        <li>Ready to use after power-up.</li>
+      </ul>
+    </div>
+    <div class="card feature">
+      <div class="icon">?</div>
+      <h3>ESP32-C3 Wireless Connectivity</h3>
+      <ul>
+        <li>Integrated Wi-Fi and Bluetooth.</li>
+        <li>USB Type-C programming interface.</li>
+        <li>No separate programmer required.</li>
+      </ul>
+    </div>
+    <div class="card feature">
+      <div class="icon">?</div>
+      <h3>Two GPIO Pins for Expansion</h3>
+      <ul>
+        <li>IO0 and IO1 available for external connections.</li>
+        <li>Connect sensors or communicate with another microcontroller.</li>
+        <li>Suitable for custom development.</li>
+      </ul>
+    </div>
+    <div class="card feature">
+      <div class="icon">?</div>
+      <h3>Convenient Board Design</h3>
+      <ul>
+        <li>RESET button for restarting the board.</li>
+        <li>BOOT button for switching demo effects.</li>
+        <li>Mounting hole for enclosure installation.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="warning" style="margin-top:16px">
+    <strong>Important:</strong> The factory-installed demo firmware
+    does not include app-based remote control. App connectivity
+    and network-based remote control require user-developed
+    applications and firmware.
+  </div>
+</section>
+
+<section class="section" id="specs">
+  <h2 class="section-title">03. Technical Specifications</h2>
+  <p class="section-sub">Hardware specifications provided for this board.</p>
+  <div class="card" style="padding:0;overflow:hidden">
+    <table class="specs">
+      <tr><th>Item</th><th>Specification</th></tr>
+      <tr><td>Main Controller</td><td>ESP32-C3</td></tr>
+      <tr><td>Wireless Connectivity</td><td>Wi-Fi + Bluetooth</td></tr>
+      <tr><td>Power Interface</td><td>USB Type-C</td></tr>
+      <tr><td>Operating Voltage</td><td>5 V</td></tr>
+      <tr><td>Typical Operating Current</td><td>200 mA</td></tr>
+      <tr><td>Exposed GPIO</td><td>IO0, IO1 (3.3 V logic)</td></tr>
+      <tr><td>LEDs</td><td>24 × WS2812B addressable RGB LEDs</td></tr>
+      <tr><td>Board Diameter</td><td>6.5 cm</td></tr>
+      <tr><td>Buttons</td><td>RESET and BOOT</td></tr>
+      <tr><td>GPIO Logic Level</td><td>3.3 V</td></tr>
+    </table>
+  </div>
+  <div class="warning" style="margin-top:14px">
+    <strong>GPIO Voltage Warning:</strong>
+    GPIO pins use 3.3 V logic. Do not connect 5 V signals directly
+    to IO0, IO1 or other GPIO connections.
+  </div>
+</section>
+
+<section class="section" id="downloads">
+  <h2 class="section-title">04. Software & Downloads</h2>
+  <p class="section-sub">Download the development tools and support packages.</p>
+  <div class="download-grid">
+    <div class="download-card">
+      <h3>Arduino IDE Package</h3>
+      <p>Arduino development software package supplied with this product.</p>
+      <a class="btn" href="Arduino%20Software%20Development%20Downloads.7z" download="Arduino Software Development Downloads.7z">Download 7Z Package &#8595;</a>
+    </div>
+    <div class="download-card">
+      <h3>Thonny Software Package</h3>
+      <p>Thonny software package supplied for development.</p>
+      <a class="btn" href="C011-Thonny%20Software%20Development%20Downloads.zip" download="C011-Thonny Software Development Downloads.zip">Download ZIP Package &#8595;</a>
+    </div>
+    <div class="download-card">
+      <h3>ESP32 Development Environment</h3>
+      <p>Development environment archive supplied for ESP32 projects.</p>
+      <a class="btn" href="ESP32%20Development%20Environment.7z.zip" download="ESP32 Development Environment.7z.zip">Download ZIP Package &#8595;</a>
+    </div>
+    <div class="download-card">
+      <h3>ESP32 Offline Support Package</h3>
+      <p>Offline support files for the ESP32 development environment.</p>
+      <a class="btn" href="xinlucity_ESP32%20Series%20Offline%20Support%20Package.zip" download="xinlucity_ESP32 Series Offline Support Package.zip">Download ZIP Package &#8595;</a>
+    </div>
+  </div>
+  <div class="card" style="margin-top:16px">
+    <h3>Online Development Resources</h3>
+    <p>Arduino IDE resources</p>
+    <a class="small-link" target="_blank" rel="noopener"
+       href="https://www.xinlucity.com/?s=resourcedetail/index/id/117.html">
+       Open Arduino Resources ↗
+    </a>
+    <p>Thonny resources</p>
+    <a class="small-link" target="_blank" rel="noopener"
+       href="https://www.xinlucity.com/?s=resourcedetail/index/id/118.html">
+       Open Thonny Resources ↗
+    </a>
+  </div>
+  <div class="card" style="margin-top:16px">
+    <h3>PDF User Manual</h3>
+    <p>Open or save the printable PDF version.</p>
+    <a class="btn" href="ESP32-C3_RGB_LED_Ring_User_Manual_EN_Rev1(1).pdf" download>
+      Download PDF Manual ↓
+    </a>
+  </div>
+</section>
+
+<section class="section" id="purchase">
+  <div class="purchase">
+    <h2>Ready to Start Your Project?</h2>
+    <p>Explore the product listing and purchase information.</p>
+    <a class="btn orange"
+       href="https://detail.tmall.com/item.htm?id=1091737144809&skuId=6145464816146"
+       target="_blank" rel="noopener">
+       View Product Listing ↗
+    </a>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  ESP32-C3 RGB LED Ring Development Board<br>
+  Product User Manual · Hardware specifications are based on the supplied documentation.
+</footer>
+
+</body>
+</html>
